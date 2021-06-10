@@ -13,6 +13,7 @@ const Statistic = (props) => {
   )
 }
 const Statistics = (props) => {
+  if (props.good==0 & props.neutral==0 & props.bad==0){return (<></>)}
   return (
     <div>
       <Statistic text="good" count={props.good}/>
