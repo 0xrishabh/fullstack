@@ -5,10 +5,22 @@ const Header = (props) => {
     <h1> {props.text} </h1>
   )
 }
-const Stats = (props) => {
+const Statistic = (props) => {
   return (
     <div>
       {props.text} {props.count}
+    </div>
+  )
+}
+const Statistics = (props) => {
+  return (
+    <div>
+      <Statistic text="good" count={props.good}/>
+      <Statistic text="neutral" count={props.neutral}/>
+      <Statistic text="bad" count={props.bad}/>
+      <Statistic text="all" count={props.good+props.bad+props.neutral}/>
+      <Statistic text="average" count={(props.good-props.bad)/(props.good+props.bad+props.neutral)}/>
+      <Statistic text="positive" count={props.good/(props.good+props.bad+props.neutral)}/>
     </div>
   )
 }
@@ -30,12 +42,7 @@ const App = () => {
       <Button ftype={setNeutral} counter={neutral} text="neutral"/>
       <Button ftype={setBad} counter={bad} text="bad"/>
       <Header text="statisctics"/>
-      <Stats text="good" count={good}/>
-      <Stats text="neutral" count={neutral}/>
-      <Stats text="bad" count={bad}/>
-      <Stats text="all" count={good+bad+neutral}/>
-      <Stats text="average" count={(good-bad)/(good+bad+neutral)}/>
-      <Stats text="positive" count={good/(good+bad+neutral)}/>
+      <Statistics good={good} bad={bad} neutral={neutral}/>
 
     </div>
   )
