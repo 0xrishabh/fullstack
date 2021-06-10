@@ -13,7 +13,7 @@ const Statistic = (props) => {
   )
 }
 const Statistics = (props) => {
-  if (props.good==0 & props.neutral==0 & props.bad==0){return (<></>)}
+  if (props.good===0 & props.neutral===0 & props.bad===0){return (<></>)}
   return (
     <table>
       <Statistic text="good" count={props.good}/>
