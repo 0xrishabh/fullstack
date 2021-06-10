@@ -7,6 +7,13 @@ const Button = (props) => {
     </>
   )
 }
+const Header = (props) => {
+  return (
+    <div>
+      <h1> {props.text} </h1>
+    </div>
+  )
+}
 
 const App = () => {
   const anecdotes = [
@@ -25,11 +32,17 @@ const App = () => {
 
   return (
     <div>
+      <Header text="Anecdote of the day" />
       {anecdotes[selected]}<br/>
-      has {copyPoints} votes  
+      has {copyPoints[selected]} votes  
       <br/>
       <Button onClick={() => {copyPoints[selected]+=1;setPoints(copyPoints)}} text="vote"/>      
       <Button onClick={() => setSelected(Math.floor(Math.random() * anecdotes.length))} text="next anecdote"/>
+
+      <Header text="Anecdote with most votes" />
+      {anecdotes[copyPoints.indexOf(Math.max(...copyPoints))]}<br/>
+      has {copyPoints[copyPoints.indexOf(Math.max(...copyPoints))]} votes
+
     </div>
   )
 }
